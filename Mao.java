@@ -14,7 +14,7 @@ public class Mao {
     }
 
     public void compraPedra (){
-        vetorPedrasMao[numPedras] = pote.vendePedra();
+        vetorPedrasMao[numPedras] = Pote.vendePedra();
         numPedras++;
 
     }
