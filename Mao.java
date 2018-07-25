@@ -1,6 +1,4 @@
-public class Mao {
-    private Pedra[] vetorPedrasMao = new Pedra[28];
-    private int numPedras;
+public class Mao extends Conjunto{
 
     public Mao() {
         setNumPedras(0);
@@ -14,15 +12,7 @@ public class Mao {
     }
 
     public void compraPedra (){
-        vetorPedrasMao[numPedras] = Pote.vendePedra();
+        vetorPedras[numPedras] = pote.vendePedra();
         numPedras++;
-
-    }
-    public int getNumPedras() {
-        return numPedras;
-    }
-
-    public void setNumPedras(int numPedras) {
-        this.numPedras = numPedras;
     }
 }

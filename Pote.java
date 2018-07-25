@@ -1,4 +1,4 @@
-public class Pote {
+public class Pote extends Conjunto{
     private Pedra[] vetorPedrasPote= new Pedra[28];
     private int numPedras;
 
@@ -20,24 +20,10 @@ public class Pote {
         }
     }
 
-    public void retiraPedra(int posicao){
-        vetorPedrasPote[posicao] = vetorPedrasPote[numPedras-1];
-        vetorPedrasPote[numPedras - 1] = null;
-        numPedras--;
-    }
-
     public Pedra vendePedra(){
         int posicao = (int)Math.random()*getNumPedras();
         Pedra pedraVendida = vetorPedrasPote[posicao];
         retiraPedra(posicao);
         return pedraVendida;
-    }
-
-    public int getNumPedras() {
-        return numPedras;
-    }
-
-    public void setNumPedras(int numPedras) {
-        this.numPedras = numPedras;
     }
 }
