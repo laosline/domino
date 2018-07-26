@@ -1,4 +1,5 @@
 import abrirJanela;
+import java.util.*;
 
 public class Mesa {
 	private Pedra principal;
@@ -15,10 +16,11 @@ public class Mesa {
 	
 	public void jogada(int rodada){
 		int pedraEscolhida;
-
+		Scanner scan = new Scanner();
+		
 		this.rodada = rodada;
 		mostrarMao();
-		//pedraEscolhida = scanear pedra escolhida
+		pedraEscolhida = Scan.nextInt();
 		if(rodada%2 != 0){
 			inserirPedra(jogador1.vetorPedra[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
