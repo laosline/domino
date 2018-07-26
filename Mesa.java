@@ -20,7 +20,7 @@ public class Mesa {
 		
 		this.rodada = rodada;
 		mostrarMao();
-		pedraEscolhida = Scan.nextInt();
+		pedraEscolhida = scan.nextInt();
 		
 		if(rodada%2 != 0){
 			if (pedraEscolhida == jogador1.getNumePedras()+1)
