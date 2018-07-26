@@ -9,6 +9,7 @@ public class Mesa {
 	private int rodada;
 
 	public int comecarJogo(){
+		compraInicial();
 		// checagem
 		// setar o jogador da rodada (1 ou 2)
 		return rodada;
@@ -33,6 +34,13 @@ public class Mesa {
 			inserirPedra(jogador2.vetorPedra[pedraEscolhida]);
 			jogador2.retiraPedra(pedraEscolhida);
 		}	
+	}
+	
+	public void compraInicial(){
+		for (int i = 0; i < 7; i++){
+			jogador1.compraPedraInicial(pote.vendePedra());
+			jogador2.compraPedraInicial(pote.vendePedra());
+		}
 	}
 	
 	public void inserirPedra(Pedra pedraNova){
