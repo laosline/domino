@@ -1,11 +1,11 @@
 public class pecainicial {
 
-public pedra igual (mao mao, pedra referencia, int jogador) // funcao que faz a checagem se existe pedra igual e se ela eh a maior
+public Pedra igual (mao mao, pedra referencia, int jogador) // funcao que faz a checagem se existe pedra igual e se ela eh a maior
 	{
 		Pedra ( referencia); // pega valor da pedra referencia
 		for (int i=0; i< mao.numpedra;i++) // checa todas as pecas
 			{
-				Pedra ( mao.PedraMao[i]); // pega valor da pedra
+				Pedra ( mao.PedraMao[i]); // pega valor da pedra, nao existe mais essa funcao
 				if( mao.PedraMao[i].valor1 == mao.PedraMao[i].valor2)  // verifica se os valores das pedras sao iguais
 					{
 						if(mao.PedraMao[i].valor1 > referencia.valor1)  // checa se o valor da pedra igual e melhor
@@ -21,13 +21,13 @@ public pedra igual (mao mao, pedra referencia, int jogador) // funcao que faz a 
 
 	}
 
-public pedra maior ( mao mao, pedra referencia, int jogador)
+public Pedra maior ( mao mao, pedra referencia, int jogador)
 	{
 		Pedra ( referencia); // pega valor da pedra referencia
 		int maiorPedra = referencia.valor1 + referencia.valor2;
 		for (int i=0; i< mao.numpedra;i++) // checa todas as pecas
 			{
-				Pedra ( mao.PedraMao[i]); // pega valor da pedra
+				Pedra ( mao.PedraMao[i]); // nao existe mais essa funcao, pega valor da pedra
 				if( (mao.PedraMao[i].valor1 + mao.PedraMao[i].valor2) > maiorPedra)  // verifica se a peca e maior
 					{
 						referencia = setValor1 ( mao.PedraMao[i].valor1); 
