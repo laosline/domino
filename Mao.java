@@ -11,8 +11,8 @@ public class Mao extends Conjunto{
         }
     }
 
-    public void compraPedra (){
-        vetorPedras[numPedras] = pote.vendePedra();
+    public void compraPedra (Pedra pedraComprada){
+        vetorPedras[numPedras] = pedraComprada;
         numPedras++;
     }
 }
