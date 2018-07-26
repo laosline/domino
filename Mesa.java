@@ -1,4 +1,4 @@
-public class Mesa extends Application{
+public class Mesa {
 	private Pedra principal;
 	private Pote pote = new Pote();
 	private Mao jogador1 = new Mao();
@@ -24,6 +24,9 @@ public class Mesa extends Application{
 	}
 
 	public void mostrarMao(){
-		abrirJanela.main(jogador1.imprimirMao());
+		if(rodada == 1)
+			abrirJanela.abrir(jogador1.imprimirMao());
+		if(rodada == 2)
+			abrirJanela.abrir(jogador2.imprimirMao());
 	}
 }

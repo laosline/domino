@@ -9,16 +9,17 @@ import javafx.stage.Stage;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
  
-public class abrirJanela extends Application {
-	private Mao jogador = new Mao();
-    	public static void main(String [] args) {
-        	launch(args);
+public abstract class abrirJanela extends Application{
+	private String [] pedras;
+	private Stage primaryStage = new Stage();
+    	public void abrir(String [] pedras) {
+		this.pedras = pedras;
+        	mostrar();
     	}
     
-    	@Override
-    	public void start(Stage primaryStage) {
-    		primaryStage.setTitle("Peças na mão");
-		Scene mainScene = createMainScene(args);
+    	public void mostrar() {
+    		primaryStage.setTitle("Pecas na mão");
+		Scene mainScene = createMainScene();
 		primaryStage.setScene(mainScene);
 		
         	primaryStage.show();
@@ -27,7 +28,7 @@ public class abrirJanela extends Application {
 
 	public Scene createMainScene() {
 		
-		Text text1 = new Text("Peças:"+args); //mudar no Mao
+		Text text1 = new Text("Peças:"+this.pedras); //mudar no Mao
         	text1.setX(100); 
         	text1.setY(50);  
 		
