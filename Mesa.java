@@ -1,3 +1,5 @@
+import abrirJanela;
+
 public class Mesa {
 	private Pedra principal;
 	private Pote pote = new Pote();
@@ -27,10 +29,14 @@ public class Mesa {
 	}
 	
 	public void inserirPedra(Pedra pedraNova){
-		if(principal.getValor1 == pedraNova.getValor1 || principal.getValor2 == pedraNova.getValor1)
+		if(principal.getValor1 == pedraNova.getValor1)
+			principal.setValor1 = pedraNova.getValor1;
+		if(principal.getValor1 == pedraNova.getValor2)
 			principal.setValor1 = pedraNova.getValor2;
-		if(principal.getValor2 == pedraNova.getValor1 || principal.getValor2 == pedraNova.getValor2)
+		if(principal.getValor2 == pedraNova.getValor1)
 			principal.setValor2 = pedraNova.getValor1;
+		if(principal.getValor2 == pedraNova.getValor2)
+			principal.setValor2 = pedraNova.getValor2;
 		// caso contrario, jogada invalida
 	}
 
