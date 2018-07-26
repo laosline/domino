@@ -1,8 +1,8 @@
-public class pecainicial {
+public class PedraInicial {
 
-public Pedra igual (mao mao, pedra referencia, int jogador) // funcao que faz a checagem se existe pedra igual e se ela eh a maior
+public Pedra Igual (Mao mao, Pedra referencia, int jogador) // funcao que faz a checagem se existe pedra igual e se ela eh a maior
 	{
-		Pedra ( referencia); // pega valor da pedra referencia
+		Pedra ( referencia); // pega valor da pedra referencia (essa classe deixou de existir)
 		for (int i=0; i< mao.numpedra;i++) // checa todas as pecas
 			{
 				Pedra ( mao.PedraMao[i]); // pega valor da pedra, nao existe mais essa funcao
@@ -21,7 +21,7 @@ public Pedra igual (mao mao, pedra referencia, int jogador) // funcao que faz a 
 
 	}
 
-public Pedra maior ( mao mao, pedra referencia, int jogador)
+public Pedra Maior ( mao mao, pedra referencia, int jogador)
 	{
 		Pedra ( referencia); // pega valor da pedra referencia
 		int maiorPedra = referencia.valor1 + referencia.valor2;
@@ -42,27 +42,27 @@ public Pedra maior ( mao mao, pedra referencia, int jogador)
 
 
 
-public pedra pedraInicial( mao mao1, mao mao2)
+public pedra PedraInicial( mao mao1, mao mao2)
 	{
-		Pedra pedraIgual;	//variavel que seleciona pedra
-		pedraIgual = new pedra();	// instancia objeto do tipo pedra
+		Pedra PedraIgual;	//variavel que seleciona pedra
+		pedraIgual = new Pedra();	// instancia objeto do tipo pedra
 		pedraIgual = setValor1(-1);
 		pedraIgual = setValor2(-1);   // inicia valor de pedra 
 		int jogador = 0;		// variavel que vai dizer qual jogador comeca
-		pedraIgual = igual( mao1, pedraIgual, 1);	// chama funcao igual que verifica se existe peca com valores iguais da mao 1
- 		pedraIgual = igual ( mao2, pedraIgual, 2);
-		if( pedraIgual.valor1 == -1)	//se nao achar peca igual, vai pra peca maior
+		pedraIgual = Igual( mao1, PedraIgual, 1);	// chama funcao igual que verifica se existe peca com valores iguais da mao 1
+ 		pedraIgual = Igual ( mao2, PedraIgual, 2);
+		if( PedraIgual.valor1 == -1)	//se nao achar peca igual, vai pra peca maior
 			{
-				pedraIgual = maior (mao1, 1);
-				pedraigual = maior (mao2, 2);
+				PedraIgual = Maior (mao1, 1);
+				Pedraigual = Maior (mao2, 2);
 			}
 		if ( jogador == 1)
 			{
-				retiraPedra (mao1);
+				RetiraPedra (mao1);
 			}
 		else if (jogador == 2)
 			{
-				retiraPedra (mao2);
+				RetiraPedra (mao2);
 			}
 		/// atualizar Peca principal, preciso ver como faz isso
 	}
