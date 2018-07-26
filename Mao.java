@@ -1,6 +1,4 @@
 public class Mao extends Conjunto{
-
-public class Mao extends Conjunto{
     private int maiorDuplo = -1;
 
     public Mao() {
