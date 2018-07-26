@@ -21,12 +21,17 @@ public class Mesa {
 		this.rodada = rodada;
 		mostrarMao();
 		pedraEscolhida = Scan.nextInt();
+		
 		if(rodada%2 != 0){
+			if (pedraEscolhida == jogador1.getNumePedras()+1)
+				jogador1.compraPedra(pote.retiraPedra());
 			inserirPedra(jogador1.vetorPedra[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
 		} else if(rodada%2 == 0){
-			inserirPedra(jogador1.vetorPedra[pedraEscolhida]);
-			jogador1.retiraPedra(pedraEscolhida);
+			if (pedraEscolhida == jogador2.getNumePedras()+1)
+				jogador2.compraPedra(pote.retiraPedra());
+			inserirPedra(jogador2.vetorPedra[pedraEscolhida]);
+			jogador2.retiraPedra(pedraEscolhida);
 		}	
 	}
 	
