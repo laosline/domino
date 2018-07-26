@@ -17,21 +17,21 @@ public class Mesa {
 	
 	public void jogada(int rodada){
 		int pedraEscolhida;
-		Scanner scan = new Scanner();
+		Scanner scan = new Scanner(System.in);
 		
 		this.rodada = rodada;
 		mostrarMao();
 		pedraEscolhida = scan.nextInt();
 		
 		if(rodada%2 != 0){
-			if (pedraEscolhida == jogador1.getNumePedras()+1)
-				jogador1.compraPedra(pote.retiraPedra());
-			inserirPedra(jogador1.vetorPedra[pedraEscolhida]);
+			if (pedraEscolhida == jogador1.getNumPedras()+1)
+				jogador1.compraPedra(pote.vendePedra());
+			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
 		} else if(rodada%2 == 0){
-			if (pedraEscolhida == jogador2.getNumePedras()+1)
-				jogador2.compraPedra(pote.retiraPedra());
-			inserirPedra(jogador2.vetorPedra[pedraEscolhida]);
+			if (pedraEscolhida == jogador2.getNumPedras()+1)
+				jogador2.compraPedra(pote.vendePedra());
+			inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
 			jogador2.retiraPedra(pedraEscolhida);
 		}	
 	}
@@ -45,13 +45,13 @@ public class Mesa {
 	
 	public void inserirPedra(Pedra pedraNova){
 		if(principal.getValor1() == pedraNova.getValor1())
-			principal.setValor1() = pedraNova.getValor2();
+			principal.setValor1(pedraNova.getValor2());
 		if(principal.getValor1() == pedraNova.getValor2())
-			principal.setValor1() = pedraNova.getValor1();
+			principal.setValor1(pedraNova.getValor1());
 		if(principal.getValor2() == pedraNova.getValor1())
-			principal.setValor2() = pedraNova.getValor2();
+			principal.setValor2(pedraNova.getValor2());
 		if(principal.getValor2() == pedraNova.getValor2())
-			principal.setValor2() = pedraNova.getValor1();
+			principal.setValor2(pedraNova.getValor1());
 		// caso contrario, jogada invalida
 	}
 
