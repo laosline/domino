@@ -8,6 +8,10 @@ public class Pedra
         this.valor2 = valor2;
     }
 
+    public void imprimePedra (){
+        System.out.println("[" + getValor1() + "|" + getValor2() + "]");
+    }
+
     public int getValor1() {
         return valor1;
     }
