@@ -18,7 +18,7 @@ public abstract class abrirJanela extends Application{
     	}
     
     	public void mostrar() {
-    		primaryStage.setTitle("Pecas na m„o");
+    		primaryStage.setTitle("Pecas na m√£o");
 		Scene mainScene = createMainScene();
 		primaryStage.setScene(mainScene);
 		
@@ -28,7 +28,7 @@ public abstract class abrirJanela extends Application{
 
 	public Scene createMainScene() {
 		
-		Text text1 = new Text("PeÁas:"+this.pedras); //mudar no Mao
+		Text text1 = new Text("Pe√ßas:"+this.pedras); //mudar no Mao
         	text1.setX(100); 
         	text1.setY(50);  
 		
