@@ -1,5 +1,7 @@
+import java.util.Random;
+
 public class Pote extends Conjunto{
-    private Pedra[] vetorPedrasPote= new Pedra[28];
+    protected Pedra[] vetorPedrasPote= new Pedra[28];
     private int numPedras;
 
     public Pote() {
@@ -11,9 +13,9 @@ public class Pote extends Conjunto{
 
     public void encherPote(){
         int posicao = 0;
-        for (int i = 0; i <= 6; i++){
-            for (int j = i; j <= 6; j++){
-                vetorPedrasPote[posicao] = new Pedra (i, j);
+        for (int i = 0; i < 7; i++){
+            for (int j = i; j < 7; j++){
+                vetorPedrasPote[posicao] = new Pedra(i,j);
                 System.out.println("Pedra Criada [" + posicao + "] " + i + " " + j);
                 posicao++;
             }
@@ -21,7 +23,8 @@ public class Pote extends Conjunto{
     }
 
     public Pedra vendePedra(){
-        int posicao = (int)Math.random()*getNumPedras();
+	Random rand = new Random();
+        int posicao = rand.nextInt(getNumPedras());
         Pedra pedraVendida = vetorPedrasPote[posicao];
         retiraPedra(posicao);
         return pedraVendida;

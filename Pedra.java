@@ -8,8 +8,13 @@ public class Pedra
         this.valor2 = valor2;
     }
 
+    public Pedra() { // utilizado apenas para a pedra principal ser inicializada
+        this.valor1 = -1;
+        this.valor2 = -1;
+    }
+
     public void imprimePedra (){
-        System.out.println("[" + getValor1() + "|" + getValor2() + "]");
+        System.out.println("[" + getValor1() + "|" + getValor2() + "] ");
     }
 
     public int getValor1() {
