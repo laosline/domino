@@ -89,12 +89,12 @@ public class Mesa{
 
 	public void mostrarMao(){
 		int i;
-		if(rodada != 0){
+		if(rodada%2 != 0){
 			for (i = 0;i<jogador1.numPedras;i++){
 				jogador1.vetorPedras[i].imprimePedra();
 			}
 		} else 	
-		if(rodada == 0){
+		if(rodada%2 == 0){
 			for (i = 0;i<jogador2.numPedras;i++){
 				jogador2.vetorPedras[i].imprimePedra();
 			}
