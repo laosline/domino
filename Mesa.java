@@ -42,8 +42,9 @@ public class Mesa{
 		Pedra pedraComprada;
 		System.out.println("[Pedra Principal] => ["+principal.getValor1()+"|"+principal.getValor2()+"]");
 		
-		this.rodada = rodada;
 		mostrarMao();
+		this.rodada = rodada;
+
 		pedraEscolhida = scan.nextInt();
 
 		if(rodada%2 != 0){
@@ -92,8 +93,8 @@ public class Mesa{
 			}
 		} else 	
 		if(rodada == 0){
-			for (i = 0;i<jogador1.numPedras;i++){
-				jogador1.vetorPedras[i].imprimePedra();
+			for (i = 0;i<jogador2.numPedras;i++){
+				jogador2.vetorPedras[i].imprimePedra();
 			}
 		}
 	}
