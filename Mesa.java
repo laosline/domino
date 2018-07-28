@@ -32,11 +32,11 @@ public class Mesa{
 				principal.setValor2(jogador2.maiorDuplo);
 			}
 		}
-		// arrumar uma forma de tirar da mão do usuario o duplo
+		// arrumar uma forma de tirar da mÃ£o do usuario o duplo
 		return this.rodada;
 	}
 	
-	public void jogada(int rodada){
+	public void jogada(int rodada) throws JogadorRuim{
 		int pedraEscolhida;
 		Scanner scan = new Scanner(System.in);
 		Pedra pedraComprada;
@@ -48,6 +48,7 @@ public class Mesa{
 		pedraEscolhida = scan.nextInt();
 
 		if(rodada%2 != 0){
+			if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
 			if (pedraEscolhida == jogador1.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador1.compraPedra(pedraComprada);
@@ -55,6 +56,7 @@ public class Mesa{
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
 		} else if(rodada%2 == 0){
+			if (pedraEscolhida > jogador2.getNumPedras()+1) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
 			if (pedraEscolhida == jogador2.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador2.compraPedra(pedraComprada);
