@@ -59,7 +59,7 @@ public class Mesa{
 			}
 			jogador1.retiraPedra(pedraEscolhida); // A PEDRA EH RETIRADA DE QUALQUER JEITO, RETIRAR ELA DENTRO DO inserirPedra(Pedra);
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
-			if(jogador1.getNumPedras()==0)throws new Campeao(rodada);
+			if(jogador1.getNumPedras()==0)throw new Campeao(rodada);
 		} else if(rodada%2 == 0){
 			mostrarMao2();
 			pedraEscolhida = scan.nextInt();
@@ -70,7 +70,7 @@ public class Mesa{
 			}
 			inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
 			jogador2.retiraPedra(pedraEscolhida);
-			if(jogador2.getNumPedras()==0)throws new Campeao(rodada);
+			if(jogador2.getNumPedras()==0)throw new Campeao(rodada);
 		}	
 	}
 	
