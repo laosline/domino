@@ -49,9 +49,13 @@ public class Mesa{
 		this.rodada = rodada;
 
 		if(rodada%2 != 0){
+<<<<<<< HEAD
 			mostrarMao1();
 			pedraEscolhida = scan.nextInt();
 			if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
+=======
+			if (pedraEscolhida > jogador1.getNumPedras()+1 || pedraEscolhida < 0) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
+>>>>>>> 8cd52a3615729395491a0066d2f29c950ffa9f19
 			if (pedraEscolhida == jogador1.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador1.compraPedra(pedraComprada);
@@ -59,9 +63,13 @@ public class Mesa{
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
 		} else if(rodada%2 == 0){
+<<<<<<< HEAD
 			mostrarMao2();
 			pedraEscolhida = scan.nextInt();
 			if (pedraEscolhida > jogador2.getNumPedras()+1) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+=======
+			if (pedraEscolhida > jogador2.getNumPedras()+1 || pedraEscolhida < 0) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+>>>>>>> 8cd52a3615729395491a0066d2f29c950ffa9f19
 			if (pedraEscolhida == jogador2.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador2.compraPedra(pedraComprada);
