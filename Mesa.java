@@ -58,8 +58,8 @@ public class Mesa{
 				pedraComprada = pote.vendePedra();
 				jogador1.compraPedra(pedraComprada);
 			}
-			jogador1.retiraPedra(pedraEscolhida); // A PEDRA EH RETIRADA DE QUALQUER JEITO, RETIRAR ELA DENTRO DO inserirPedra(Pedra);
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
+			jogador1.retiraPedra(pedraEscolhida); // A PEDRA EH RETIRADA DE QUALQUER JEITO, RETIRAR ELA DENTRO DO inserirPedra(Pedra);
 			if(jogador1.getNumPedras()==0)throw new Campeao(rodada);
 		} else if(rodada%2 == 0){
 			mostrarMao2();
