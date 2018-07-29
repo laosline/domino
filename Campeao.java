@@ -1,4 +1,4 @@
-public class campeao extends Exception{
+public class Campeao extends Exception{
 	int jogador;
 	public campeao(int i){
 		this.jogador = i;
