@@ -1,6 +1,6 @@
 public class Campeao extends Exception{
 	int jogador;
-	public campeao(int i){
+	public Campeao(int i){
 		this.jogador = i;
 	}
 	public String getMessage(){
@@ -14,10 +14,10 @@ public class Campeao extends Exception{
 	}
 	public double getCampeao(){
 		if(jogador%2 != 0){
-			return "1"
+			return 1;
 		}
-		if(jogador%2 == 0){
-			return "2"
+		else {
+			return 2;
 		}
 	}
 }
