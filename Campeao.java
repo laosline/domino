@@ -4,7 +4,7 @@ public class Campeao extends Exception{
 		this.jogador = i;
 	}
 	public String getMessage(){
-		return "O jogador";
+		return "O jogador ";
 	}
 	public String getMessage1(){
 		return " ganhou o jogo";
