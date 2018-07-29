@@ -10,6 +10,7 @@ public class Mesa{
 	public int comecarJogo(){
 		
 		for(int i = 0;i<7;i++){
+			System.out.println("Compra Inicial " + i);
 			jogador1.compraPedraInicial();		
 			jogador2.compraPedraInicial();
 		} 

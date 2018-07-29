@@ -13,14 +13,14 @@ public class Mao extends Conjunto {
     }
 
     public void compraPedra (Pedra pedraComprada){
-        vetorPedras[numPedras] = pedraComprada;
+        vetorPedras[numPedras] = new Pedra (pedraComprada.getValor1(), pedraComprada.getValor2());
         numPedras++;
     }
 
     public void compraPedraInicial (){
-	Pote pote = SinglePote.getPote(); 
-	Pedra pedraComprada = pote.vendePedra();// pedras estão vindo vazias do pote
-	compraPedra(pedraComprada);
+		Pote pote = SinglePote.getPote(); 
+		Pedra pedraComprada = pote.vendePedra();// pedras estão vindo vazias do pote
+		compraPedra(pedraComprada);
         encontraMaiorDuplo(pedraComprada);
     }
 }
