@@ -16,7 +16,6 @@ public class Pote extends Conjunto{
         for (int i = 0; i < 7; i++){
             for (int j = i; j < 7; j++){
                 vetorPedrasPote[posicao] = new Pedra(i,j);
-                System.out.println("Pedra Criada [" + posicao + "] " + i + " " + j);
                 posicao++;
             }
         }
