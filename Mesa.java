@@ -40,7 +40,7 @@ public class Mesa{
 		return this.rodada;
 	}
 	
-	public void jogada(int rodada) throws JogadorRuim{
+	public void jogada(int rodada) throws JogadorRuim,Campeao{
 		int pedraEscolhida;
 		Scanner scan = new Scanner(System.in);
 		Pedra pedraComprada;
@@ -58,6 +58,7 @@ public class Mesa{
 			}
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
+			if(jogador1.getNumPedras()==0)throws new Campeao(rodada);
 		} else if(rodada%2 == 0){
 			mostrarMao2();
 			pedraEscolhida = scan.nextInt();
@@ -68,6 +69,7 @@ public class Mesa{
 			}
 			inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
 			jogador2.retiraPedra(pedraEscolhida);
+			if(jogador2.getNumPedras()==0)throws new Campeao(rodada);
 		}	
 	}
 	
