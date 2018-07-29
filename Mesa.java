@@ -13,13 +13,14 @@ public class Mesa{
 			jogador1.compraPedraInicial();		
 			jogador2.compraPedraInicial();
 		} 
+		/**TESTE
 		for (int j=0;j<jogador1.numPedras;j++){
 				jogador1.vetorPedras[j].imprimePedra();
 		}
 		System.out.println("\n");
 		for (int j=0;j<jogador1.numPedras;j++){
 				jogador2.vetorPedras[j].imprimePedra();
-		}
+		}**/ 
 
 		if(jogador1.maiorDuplo > jogador2.maiorDuplo){
 			this.rodada = 1;
@@ -52,12 +53,12 @@ public class Mesa{
 			mostrarMao1();
 			pedraEscolhida = scan.nextInt();
 			if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
-			if (pedraEscolhida == jogador1.getNumPedras()+1){
+			if (pedraEscolhida == jogador1.getNumPedras()+1){ //NAO ESTOU CONSEGUINDO COMPRAR PEDRAS NOVAS
 				pedraComprada = pote.vendePedra();
 				jogador1.compraPedra(pedraComprada);
 			}
+			jogador1.retiraPedra(pedraEscolhida); // A PEDRA EH RETIRADA DE QUALQUER JEITO, RETIRAR ELA DENTRO DO inserirPedra(Pedra);
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
-			jogador1.retiraPedra(pedraEscolhida);
 			if(jogador1.getNumPedras()==0)throws new Campeao(rodada);
 		} else if(rodada%2 == 0){
 			mostrarMao2();
