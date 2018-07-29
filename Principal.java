@@ -17,7 +17,12 @@ public class Principal{
 		System.out.println(e.getnumPedras());
 		System.out.println(e.getMessage2());
 		System.out.println(e.geterrada());
-	}
+		}catch(Campeao e){
+		System.out.print(e.getMessage());
+		System.out.print(getCampeao());
+		System.out.println(e.getMessage1());
+		System.out.println(e.getMessage2());
+		}
 	}
 	
 }
