@@ -48,7 +48,7 @@ public class Mesa{
 		pedraEscolhida = scan.nextInt();
 
 		if(rodada%2 != 0){
-			if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
+			if (pedraEscolhida > jogador1.getNumPedras()+1 || pedraEscolhida < 0) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
 			if (pedraEscolhida == jogador1.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador1.compraPedra(pedraComprada);
@@ -56,7 +56,7 @@ public class Mesa{
 			inserirPedra(jogador1.vetorPedras[pedraEscolhida]);
 			jogador1.retiraPedra(pedraEscolhida);
 		} else if(rodada%2 == 0){
-			if (pedraEscolhida > jogador2.getNumPedras()+1) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+			if (pedraEscolhida > jogador2.getNumPedras()+1 || pedraEscolhida < 0) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
 			if (pedraEscolhida == jogador2.getNumPedras()+1){
 				pedraComprada = pote.vendePedra();
 				jogador2.compraPedra(pedraComprada);
