@@ -11,24 +11,18 @@ public class Mesa{
 		
 		for(int i = 0;i<7;i++){
 			System.out.println("Compra Inicial " + i);
-			jogador1.compraPedraInicial();		
-			jogador2.compraPedraInicial();
+			jogador1.compraPedraInicial(i);		
+			jogador2.compraPedraInicial(i);
 		} 
-		/**TESTE
-		for (int j=0;j<jogador1.numPedras;j++){
-				jogador1.vetorPedras[j].imprimePedra();
-		}
-		System.out.println("\n");
-		for (int j=0;j<jogador1.numPedras;j++){
-				jogador2.vetorPedras[j].imprimePedra();
-		}**/ 
 
 		if(jogador1.maiorDuplo > jogador2.maiorDuplo){
-			this.rodada = 1;
-			principal = new Pedra(jogador1.maiorDuplo,jogador1.maiorDuplo);
-		}else if(jogador1.maiorDuplo < jogador2.maiorDuplo){
 			this.rodada = 2;
+			principal = new Pedra(jogador1.maiorDuplo,jogador1.maiorDuplo);
+			jogador1.retiraPedra(jogador1.maiorDuploIndice);
+		}else if(jogador1.maiorDuplo < jogador2.maiorDuplo){
+			this.rodada = 1;
 			principal = new Pedra(jogador2.maiorDuplo,jogador2.maiorDuplo);
+			jogador2.retiraPedra(jogador2.maiorDuploIndice);
 		}else{
 			Random rand = new Random();
         		this.rodada = rand.nextInt(2)+1;

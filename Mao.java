@@ -1,5 +1,6 @@
 public class Mao extends Conjunto {
     protected int maiorDuplo = -1;
+    protected int maiorDuploIndice = -1;
 
     public Mao() {
         setNumPedras(0);
@@ -17,10 +18,15 @@ public class Mao extends Conjunto {
         numPedras++;
     }
 
-    public void compraPedraInicial (){
+    public void compraPedraInicial (int indice){
 		Pote pote = SinglePote.getPote(); 
-		Pedra pedraComprada = pote.vendePedra();// pedras estão vindo vazias do pote
+		Pedra pedraComprada = pote.vendePedra();
+		int maior = this.maiorDuplo;
+
 		compraPedra(pedraComprada);
-        encontraMaiorDuplo(pedraComprada);
+        	encontraMaiorDuplo(pedraComprada);
+		if(this.maiorDuplo != maior){
+			this.maiorDuploIndice = indice;
+		}
     }
 }
