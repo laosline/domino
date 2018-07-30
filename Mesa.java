@@ -73,7 +73,7 @@ public class Mesa{
                 pedraEscolhida = scan.nextInt(); // jogador decide qual pedra jogar
                 if (pedraEscolhida > jogador1.getNumPedras()) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
                 else if (pedraEscolhida == jogador1.getNumPedras()){ // caso o jogador digite um numero igual ao numPedras, ele compra pedra
-                    if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
+                    if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
                     pedraComprada = pote.vendePedra();// recebe uma pedra do Pote
                     jogador1.compraPedra(pedraComprada);// coloca essa pedra no Mao
                     System.out.println("Pedra comprada!\n");
@@ -94,7 +94,7 @@ public class Mesa{
                     pedraEscolhida = IA.selecionar (jogador2, principal);
                     if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
                     else if (pedraEscolhida == jogador2.getNumPedras()){
-                        if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
+                        if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
                         pedraComprada = pote.vendePedra();
                         jogador2.compraPedra(pedraComprada);
                         System.out.println("Pedra comprada!\n");
@@ -120,7 +120,7 @@ public class Mesa{
                     pedraEscolhida = scan.nextInt();
                     if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
                     else if (pedraEscolhida == jogador2.getNumPedras()){
-                        if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
+                        if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
                         pedraComprada = pote.vendePedra();
                         jogador2.compraPedra(pedraComprada);
                         System.out.println("Pedra comprada!\n");

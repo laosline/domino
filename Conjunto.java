@@ -1,6 +1,6 @@
 public class Conjunto{
     protected Pedra[] vetorPedras = new Pedra[28];
-    protected int numPedras;
+    private int numPedras;
 
     public void retiraPedra(int posicao){
         vetorPedras[posicao] = vetorPedras[numPedras-1];
