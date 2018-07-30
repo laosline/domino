@@ -11,7 +11,7 @@ public class Maquina {
             
             public int selecionar (Mao maoDaMaquina, Pedra principal)
                     {
-                          numero=-1;
+                          numero=0;
                           for( i=0;i< maoDaMaquina.numPedras;i++)
                                   {
                                        if( principal.getValor1()== maoDaMaquina.vetorPedras[i].getValor1() || // checa se a carta  e possivel
@@ -25,16 +25,11 @@ public class Maquina {
                                    }
                            if( numero >1)  //  se for maior que 1, retorna aleatoriamente
                               escolhido =  rand.nextInt(numero) +1;
+                           if (numero == 0)
+                        	   escolhido = maoDaMaquina.numPedras; /// algum valor que sei que e impossivel e force ele comprar peca
+                           if (numero ==1)
+                        	   escolhido = escolha[0];
                            return escolhido;
                       }
-    /*         public void PoteMaquina ( int numero2)
-                    {
-                       if( numero2 == -1)   //caso de 
-                              {
-                                  pedraCompre = pote.vendePedra();
-                                  maoDaMaquina.compraPedra ( pedraCompre);
-                                  System.out.println (" Pedra comprada!\n");
-                              } 
-                      }  */
 }
                                        
