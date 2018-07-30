@@ -6,12 +6,24 @@ public class Mesa{
 	protected Mao jogador2 = new Mao();
 	protected Usadas usadas = new Usadas();
 	private int rodada;
+	protected Maquina IA = new Maquina();
 	Pote pote = SinglePote.getPote(); 
-
+	int jogo=0; //variavel que define qual tipo dejogo
 	public int comecarJogo(){
 		Scanner scan = new Scanner(System.in);
 		int pedraEscolhida;
 		clear();
+	/*	boolean jogado=false;
+		while (jogado) {
+			System.out.println ("0- jogar contra a maquina \n 1- jogar contra alguem");
+			jogo = scan.nextInt();
+			if(jogo==1)
+				jogado=true;
+			else if (jogo==0)
+				jogado=true;
+		}
+	    */	
+		
 		for(int i = 0;i<7;i++){
 			jogador1.compraPedraInicial(i);		
 			jogador2.compraPedraInicial(i);
@@ -21,7 +33,7 @@ public class Mesa{
 			this.rodada = 2;
 			principal = new Pedra(jogador1.maiorDuplo,jogador1.maiorDuplo); // gera uma pedra principal atraves do maiorDuplo armazenado no Mao
 			usadas.compraPedra(principal); 
-			jogador1.retiraPedra(jogador1.maiorDuploIndice); // retira a pedra através do seu indice no vetor
+			jogador1.retiraPedra(jogador1.maiorDuploIndice); // retira a pedra atravÃ©s do seu indice no vetor
 			System.out.print("O jogador 1 iniciou o jogo com a pedra ");
 			principal.imprimePedra(); 
 		}else if(jogador1.maiorDuplo < jogador2.maiorDuplo){
@@ -35,13 +47,13 @@ public class Mesa{
 			Random rand = new Random();
         		this.rodada = rand.nextInt(2)+1;
 			if(rodada%2 != 0){
-				System.out.println("Nenhum dos jogadores possuem duplos, escolha um número entre 0 e 7 para decidir qual pedra ira comecar: ");
+				System.out.println("Nenhum dos jogadores possuem duplos, escolha um nÃºmero entre 0 e 7 para decidir qual pedra ira comecar: ");
 				pedraEscolhida = scan.nextInt(); // jogador decide cegamente qual pedra inicia
 				if (pedraEscolhida > jogador1.getNumPedras());
 				principal = jogador1.vetorPedras[pedraEscolhida];
 				jogador1.retiraPedra(pedraEscolhida); // pedra retirada da mao do jogador
 			} else 	if(rodada%2 == 0){
-				System.out.println("Nenhum dos jogadores possuem duplos, escolha um número entre 0 e 7 para decidir qual pedra ira comecar: ");
+				System.out.println("Nenhum dos jogadores possuem duplos, escolha um nÃºmero entre 0 e 7 para decidir qual pedra ira comecar: ");
 				pedraEscolhida = scan.nextInt();
 				if (pedraEscolhida > jogador1.getNumPedras());
 				principal = jogador2.vetorPedras[pedraEscolhida];
@@ -76,8 +88,8 @@ public class Mesa{
 					jogador1.compraPedra(pedraComprada);// coloca essa pedra no Mao
 					System.out.println("Pedra comprada!\n");
 				}else if(pedraEscolhida < jogador1.getNumPedras()){ // o jogador escolhe uma pedra para colocar na principal
-					jogadaInvalida = inserirPedra(jogador1.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja inválida, ele repete a mesma jogada
-					if(jogadaInvalida == false){ // jogada acaba se a jogada for válida
+					jogadaInvalida = inserirPedra(jogador1.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja invÃ¡lida, ele repete a mesma jogada
+					if(jogadaInvalida == false){ // jogada acaba se a jogada for vÃ¡lida
 						usadas.compraPedra(jogador1.vetorPedras[pedraEscolhida]);
 						jogador1.retiraPedra(pedraEscolhida);
 						clear();
@@ -86,30 +98,56 @@ public class Mesa{
 			}
 			if(jogador1.getNumPedras()==0)throw new Campeao(rodada);
 		} else if(rodada%2 == 0){ // rodadas pares sao do jogador2
-			boolean jogadaInvalida = true;
-			while (jogadaInvalida){
-				usadas.mostrarUsadas();
-				jogador1.qtdPedrasAdversario();
-				pote.mostrarQtdPedras();
-				jogador2.mostrarMao(2);
-				pedraEscolhida = scan.nextInt();
-				if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
-				else if (pedraEscolhida == jogador2.getNumPedras()){
-					if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
-					pedraComprada = pote.vendePedra();
-					jogador2.compraPedra(pedraComprada);
-					System.out.println("Pedra comprada!\n");
-				}
-				else if(pedraEscolhida < jogador2.getNumPedras()){
-					jogadaInvalida = inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
-					if (jogadaInvalida == false){
-						usadas.compraPedra(jogador2.vetorPedras[pedraEscolhida]);
-						jogador2.retiraPedra(pedraEscolhida);
-						clear();
-					}	
-				}
+			
+			if(jogo == 0) { 
+				boolean jogadaInvalida = true;
+				while(jogadaInvalida) {
+						//jogador2.mostrarMao(2);
+						pedraEscolhida = IA.selecionar (jogador2, principal); //seleciona a peca
+						//System.out.println("peca selecionada " + pedraEscolhida);
+						if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+						else if (pedraEscolhida == jogador2.getNumPedras()){
+							if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
+							pedraComprada = pote.vendePedra();
+							jogador2.compraPedra(pedraComprada);
+							System.out.println("Pedra comprada!\n");
+						}
+						else if(pedraEscolhida < jogador2.getNumPedras()){
+								jogadaInvalida = inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
+								if (jogadaInvalida == false){
+									usadas.compraPedra(jogador2.vetorPedras[pedraEscolhida]);
+									jogador2.retiraPedra(pedraEscolhida);
+									clear();
+								}	
+						}		
+					}
 			}
-			if(jogador2.getNumPedras()==0)throw new Campeao(rodada); // lanca o campeao
+			else {	
+					boolean jogadaInvalida = true;
+					while (jogadaInvalida){
+							usadas.mostrarUsadas();
+							jogador1.qtdPedrasAdversario();
+							pote.mostrarQtdPedras();
+							jogador2.mostrarMao(2);
+							pedraEscolhida = scan.nextInt();
+							if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+							else if (pedraEscolhida == jogador2.getNumPedras()){
+								if (pote.numPedras == 0) throw new DeuErro(jogador1.getNumPedras());
+								pedraComprada = pote.vendePedra();
+								jogador2.compraPedra(pedraComprada);
+								System.out.println("Pedra comprada!\n");
+							}
+							else if(pedraEscolhida < jogador2.getNumPedras()){
+									jogadaInvalida = inserirPedra(jogador2.vetorPedras[pedraEscolhida]);
+									if (jogadaInvalida == false){
+										usadas.compraPedra(jogador2.vetorPedras[pedraEscolhida]);
+										jogador2.retiraPedra(pedraEscolhida);
+										clear();
+									}	
+							}
+					}
+					if(jogador2.getNumPedras()==0)throw new Campeao(rodada); // lanca o campeao
+				}
 		}	
 	}
 	
