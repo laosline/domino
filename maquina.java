@@ -1,37 +1,40 @@
+import java.util.*;
 
 
 public class Maquina {
             int i;
-            int escolha = new vetor();
+            int escolha[] = new int[28];
             int numero=0;
-            Random rand = new Random():
-            Pedra pedracompre;
+            int escolhido=-1;
+            Random rand = new Random();
+            Pedra pedracompre = new Pedra();
             
             public int selecionar (Mao maoDaMaquina, Pedra principal)
                     {
                           numero=-1;
-                          for( i=0;i< maoDaMaquina.numPedra;i++)
+                          for( i=0;i< maoDaMaquina.numPedras;i++)
                                   {
-                                       if( principal.valor1== maoDaMaquina.vetorPedras[i].getValor1() || // checa se a carta  e possivel
-                                          principal.valor1== maoDaMaquina.vetorPedras[i].getValor2() ||
-                                          principal.valor2 == maoDaMaquina.vetorPedras[i].getvalor1() ||
-                                          principal.valor2 == maoDaMaquina.vetorPedras[i].getvalor2() )
+                                       if( principal.getValor1()== maoDaMaquina.vetorPedras[i].getValor1() || // checa se a carta  e possivel
+                                          principal.getValor1()== maoDaMaquina.vetorPedras[i].getValor2() ||
+                                          principal.getValor2() == maoDaMaquina.vetorPedras[i].getValor1() ||
+                                          principal.getValor2() == maoDaMaquina.vetorPedras[i].getValor2() )
                                           {
                                                 escolha[numero]= i;    ///adiciona as cartas possiveis
                                                 numero++;
                                           }
                                    }
                            if( numero >1)  //  se for maior que 1, retorna aleatoriamente
-                              return rand = rand.nextInt(numero) +1;
+                              escolhido =  rand.nextInt(numero) +1;
+                           return escolhido;
                       }
-             public void PoteMaquina ( int numero2)
+    /*         public void PoteMaquina ( int numero2)
                     {
                        if( numero2 == -1)   //caso de 
                               {
                                   pedraCompre = pote.vendePedra();
                                   maoDaMaquina.compraPedra ( pedraCompre);
-                                  System.out.println (" Pedra comprada!\n);
+                                  System.out.println (" Pedra comprada!\n");
                               } 
-                      }
+                      }  */
 }
                                        
