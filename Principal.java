@@ -1,8 +1,13 @@
+import java.util.Scanner;
+
 public class Principal{
 	public static void main(String[] args) {
 		try{
-		Mesa mesa = new Mesa();
-		int rodada = mesa.comecarJogo();
+		System.out.println("Iniciando jogo!\n\nDigite a opcao de jogo: \n0 - PVC\n1 - PVP\n");
+		Scanner scan = new Scanner (System.in);
+        int tipoDeJogo = scan.nextInt();
+        Mesa mesa = new Mesa();
+		int rodada = mesa.comecarJogo(tipoDeJogo);
 
 		while(true){
 			try{

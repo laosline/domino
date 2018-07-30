@@ -14,25 +14,25 @@ public class Mao extends Conjunto {
     }
 
     public void compraPedraInicial (int indice){
-		Pote pote = SinglePote.getPote(); 
-		Pedra pedraComprada = pote.vendePedra();
-		int maior = this.maiorDuplo;
+        Pote pote = SinglePote.getPote();
+        Pedra pedraComprada = pote.vendePedra();
+        int maior = this.maiorDuplo;
 
-		compraPedra(pedraComprada);
-        	encontraMaiorDuplo(pedraComprada);
-		if(this.maiorDuplo != maior){
-			this.maiorDuploIndice = indice;
-		}
+        compraPedra(pedraComprada);
+        encontraMaiorDuplo(pedraComprada);
+        if(this.maiorDuplo != maior){
+            this.maiorDuploIndice = indice;
+        }
     }
-	
-	public void qtdPedrasAdversario(){
-		System.out.println("O outro jogador possui " + getNumPedras() + " pedras.");
-	}
-	
-	public void mostrarMao(int numJogador){
-		System.out.println("Jogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.");
-		System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
-		super.imprimePedras();
-		System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");
-	}
+
+    public void qtdPedrasAdversario() {
+        System.out.println("O outro jogador possui " + getNumPedras() + " pedras.");
+    }
+
+    public void mostrarMao(int numJogador){
+        System.out.println("Jogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.");
+        System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
+        super.imprimePedras();
+        System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");
+    }
 }
