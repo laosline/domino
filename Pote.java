@@ -16,6 +16,10 @@ public class Pote extends Conjunto{
             }
         }
     }
+	
+	public void mostrarQtdPedras(){
+		System.out.println("O pote possui " + getNumPedras() + " pedras.");
+	}
 
     public Pedra vendePedra(){
 		Random rand = new Random();

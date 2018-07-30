@@ -26,7 +26,7 @@ public class Mao extends Conjunto {
     }
 	
 	public void qtdPedrasAdversario(){
-		System.out.println("O outro jogador possui " + getNumPedras() + ".");
+		System.out.println("O outro jogador possui " + getNumPedras() + " pedras.");
 	}
 	
 	public void mostrarMao(int numJogador){

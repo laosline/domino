@@ -18,11 +18,17 @@ public class Mesa{
 		if(jogador1.maiorDuplo > jogador2.maiorDuplo){
 			this.rodada = 2;
 			principal = new Pedra(jogador1.maiorDuplo,jogador1.maiorDuplo);
+			usadas.compraPedra(principal);
 			jogador1.retiraPedra(jogador1.maiorDuploIndice);
+			System.out.print("O jogador 1 iniciou o jogo com a pedra ");
+			principal.imprimePedra();
 		}else if(jogador1.maiorDuplo < jogador2.maiorDuplo){
 			this.rodada = 1;
 			principal = new Pedra(jogador2.maiorDuplo,jogador2.maiorDuplo);
+			usadas.compraPedra(principal);
 			jogador2.retiraPedra(jogador2.maiorDuploIndice);
+			System.out.print("O jogador 2 iniciou o jogo com a pedra ");
+			principal.imprimePedra();
 		}else{
 			Random rand = new Random();
         		this.rodada = rand.nextInt(2)+1;
@@ -49,6 +55,7 @@ public class Mesa{
 		if(rodada%2 != 0){
 			usadas.mostrarUsadas();
 			jogador2.qtdPedrasAdversario();
+			pote.mostrarQtdPedras();
 			jogador1.mostrarMao(1);
 			pedraEscolhida = scan.nextInt();
 			if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida);
@@ -64,6 +71,7 @@ public class Mesa{
 		} else if(rodada%2 == 0){
 			usadas.mostrarUsadas();
 			jogador1.qtdPedrasAdversario();
+			pote.mostrarQtdPedras();
 			jogador2.mostrarMao(2);
 			pedraEscolhida = scan.nextInt();
 			if (pedraEscolhida > jogador2.getNumPedras()+1) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
