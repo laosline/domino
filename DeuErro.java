@@ -1,6 +1,9 @@
-public class DeuErro extends RuntimeException{
+public class DeuErro extends Exception{
 	public DeuErro (){
-		super("Não existe mais peças no pote");
+	}
+	
+	public String getMessage(){
+		return "Pote vazio!";
 	}
 	
 }

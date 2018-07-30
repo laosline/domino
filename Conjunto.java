@@ -2,8 +2,7 @@ public class Conjunto{
     protected Pedra[] vetorPedras = new Pedra[28];
     protected int numPedras;
 
-    public void retiraPedra(int posicao)throws DeuErro{
-	if((numPedras == 0)) throw new DeuErro();
+    public void retiraPedra(int posicao){
         vetorPedras[posicao] = vetorPedras[numPedras-1];
         vetorPedras[numPedras - 1] = null;
         numPedras--;

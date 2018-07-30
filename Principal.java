@@ -4,24 +4,28 @@ public class Principal{
 		Mesa mesa = new Mesa();
 		int rodada = mesa.comecarJogo();
 
-		while(true){	
+		while(true){
+			try{	
 			System.out.println("Rodada = "+rodada);
 			mesa.jogada(rodada); 
 			//rodada impar => vez do jogador 1
 			//rodada par => vez do jogador 2
 			rodada++;
+			}catch(DeuErro e){
+				System.out.println(e.getMessage());
+			}catch(JogadorRuim e){
+				System.out.println(e.getMessage());
+				System.out.print(e.getMessage1());
+				System.out.println(e.getnumPedras());
+				System.out.println(e.getMessage2());
+				System.out.println(e.geterrada());
+			}
 		}
-		}catch(JogadorRuim e){
-		System.out.println(e.getMessage());
-		System.out.print(e.getMessage1());
-		System.out.println(e.getnumPedras());
-		System.out.println(e.getMessage2());
-		System.out.println(e.geterrada());
 		}catch(Campeao e){
-		System.out.print(e.getMessage());
-		System.out.print(e.getCampeao());
-		System.out.println(e.getMessage1());
-		System.out.println(e.getMessage2());
+			System.out.print(e.getMessage());
+			System.out.print(e.getCampeao());
+			System.out.println(e.getMessage1());
+			System.out.println(e.getMessage2());
 		}
 	}
 	
