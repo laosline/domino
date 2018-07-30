@@ -59,9 +59,6 @@ public class Mesa{
         Scanner scan = new Scanner(System.in);
         Pedra pedraComprada;
 
-        System.out.print("[Pedra Principal] => ");
-        principal.imprimePedra(); // imprime a pedra principal
-        System.out.println("\n");
         this.rodada = rodada; // rodada do Mesa eh atualizada de acordo com o rodada do Principal
 
         if(rodada%2 != 0){ // rodadas impares sao do jogador1
@@ -70,6 +67,8 @@ public class Mesa{
                 usadas.mostrarUsadas(); // imprime as pedras retiradas pelos dois jogadores
                 jogador2.qtdPedrasAdversario(); // imprime quantas pedras o adversario tem
                 pote.mostrarQtdPedras(); // imprime quantas pedras sobraram no pote disponiveis para comprar
+                System.out.print("\n[Pedra Principal] => ");
+                principal.imprimePedra(); // imprime a pedra principal
                 jogador1.mostrarMao(1); // imprime as pedras na mao do jogador
                 pedraEscolhida = scan.nextInt(); // jogador decide qual pedra jogar
                 if (pedraEscolhida > jogador1.getNumPedras()) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
@@ -116,6 +115,7 @@ public class Mesa{
                     usadas.mostrarUsadas();
                     jogador1.qtdPedrasAdversario();
                     pote.mostrarQtdPedras();
+                    System.out.print("[Pedra Principal] => ");
                     jogador2.mostrarMao(2);
                     pedraEscolhida = scan.nextInt();
                     if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);

@@ -30,7 +30,7 @@ public class Mao extends Conjunto {
     }
 
     public void mostrarMao(int numJogador){
-        System.out.println("Jogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.");
+        System.out.println("\nJogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.\n");
         System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
         super.imprimePedras();
         System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");

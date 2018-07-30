@@ -11,7 +11,6 @@ public class Principal{
 
 		while(true){
 			try{
-			System.out.println("Rodada = "+rodada);
 			mesa.jogada(rodada); 
 			//rodada impar => vez do jogador 1
 			//rodada par => vez do jogador 2
