@@ -12,7 +12,7 @@ public class Campeao extends Exception{
 	public String getMessage2(){
 		return "Parabéns Campeão!!!";
 	}
-	public double getCampeao(){
+	public int getCampeao(){
 		if(jogador%2 != 0){
 			return 1;
 		}
