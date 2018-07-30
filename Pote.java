@@ -7,8 +7,6 @@ public class Pote extends Conjunto{
         encherPote();
     }
 
-
-
     public void encherPote(){
         int posicao = 0;
         for (int i = 0; i < 7; i++){
@@ -23,7 +21,6 @@ public class Pote extends Conjunto{
 		Random rand = new Random();
         int posicao = rand.nextInt(getNumPedras());
         Pedra pedraVendida = new Pedra (vetorPedras[posicao].getValor1(), vetorPedras[posicao].getValor2());
-		pedraVendida.imprimePedra();
         retiraPedra(posicao);
         return pedraVendida;
     }

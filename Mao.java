@@ -13,11 +13,6 @@ public class Mao extends Conjunto {
         }
     }
 
-    public void compraPedra (Pedra pedraComprada){
-        vetorPedras[numPedras] = new Pedra (pedraComprada.getValor1(), pedraComprada.getValor2());
-        numPedras++;
-    }
-
     public void compraPedraInicial (int indice){
 		Pote pote = SinglePote.getPote(); 
 		Pedra pedraComprada = pote.vendePedra();
@@ -29,4 +24,15 @@ public class Mao extends Conjunto {
 			this.maiorDuploIndice = indice;
 		}
     }
+	
+	public void qtdPedrasAdversario(){
+		System.out.println("O outro jogador possui " + getNumPedras() + ".");
+	}
+	
+	public void mostrarMao(int numJogador){
+		System.out.println("Jogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.");
+		System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
+		super.imprimePedras();
+		System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");
+	}
 }
