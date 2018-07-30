@@ -5,14 +5,15 @@ public class Principal{
 		int rodada = mesa.comecarJogo();
 
 		while(true){
-			try{	
+			try{
 			System.out.println("Rodada = "+rodada);
 			mesa.jogada(rodada); 
 			//rodada impar => vez do jogador 1
 			//rodada par => vez do jogador 2
 			rodada++;
 			}catch(DeuErro e){
-				System.out.println(e.getMessage());
+				System.out.println(e.passarVez());
+				System.out.println(e.getNumPedras());
 			}catch(JogadorRuim e){
 				System.out.println(e.getMessage());
 				System.out.print(e.getMessage1());

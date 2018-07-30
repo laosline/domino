@@ -1,9 +1,15 @@
 public class DeuErro extends Exception{
-	public DeuErro (){
+	private int numPedras;
+
+	public DeuErro (int numPedras){
+		this.numPedras = numPedras;
 	}
-	
-	public String getMessage(){
-		return "Pote vazio!";
+		
+	public String passarVez(){
+		return "Para passar a vez, digite: ";
 	}
-	
+		
+	public int getNumPedras(){
+		return numPedras;
+	}
 }

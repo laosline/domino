@@ -18,7 +18,11 @@ public class Pote extends Conjunto{
     }
 	
 	public void mostrarQtdPedras(){
-		System.out.println("O pote possui " + getNumPedras() + " pedras.");
+		if(getNumPedras() > 0) {	
+			System.out.println("O pote possui " + getNumPedras() + " pedras.");
+		}else{
+			System.out.println("Pote vazio!!!");
+		}
 	}
 
     public Pedra vendePedra(){
