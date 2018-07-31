@@ -10,8 +10,8 @@ public class Principal{
 		System.out.println("Iniciando jogo de DOMINO!\n");
 		System.out.println("Digite a opcao de jogo: \n0 - PVC\n1 - PVP\n");
 		Scanner scan = new Scanner (System.in);
-        int tipoDeJogo = scan.nextInt();
-        Mesa mesa = new Mesa();
+        	int tipoDeJogo = scan.nextInt();
+        	Mesa mesa = new Mesa();
 		int rodada = mesa.comecarJogo(tipoDeJogo);
 
 		while(true){
@@ -36,7 +36,7 @@ public class Principal{
 			System.out.println(e.getMessage1());
 			System.out.println(e.getMessage2());
 		}catch(DeuEmpate e){
-			System.out.println(e.acabarJogo());
+			System.out.println("Acabou "+e);
 		}
 	}
 	

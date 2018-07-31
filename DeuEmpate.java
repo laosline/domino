@@ -1,9 +1,5 @@
-public class DeuEmpate extends Exception{
+public class DeuEmpate extends RuntimeException{
 	public DeuEmpate (){	
-		super();
-	}
-	
-	public String acabarJogo(){
-		return "Jogo empatado!!";
+		super("Jogo Empatado!!");
 	}
 }
