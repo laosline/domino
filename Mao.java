@@ -8,8 +8,8 @@ public class Mao extends Conjunto {
 
     public void encontraMaiorDuplo (Pedra pedraComprada) {
         if (pedraComprada.getValor1() == pedraComprada.getValor2()) {
-		if (pedraComprada.getValor1()>this.maiorDuplo)
-            		this.maiorDuplo = pedraComprada.getValor1();
+            if (pedraComprada.getValor1()>this.maiorDuplo)
+                this.maiorDuplo = pedraComprada.getValor1();
         }
     }
 
@@ -34,6 +34,6 @@ public class Mao extends Conjunto {
         System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
         super.imprimePedras();
         System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");
-	System.out.println(getNumPedras()+1 +" = Passar a vez (funciona somente se o pote estiver vazio).\n");
+        System.out.println(getNumPedras()+1 +" = Passar a vez (funciona somente se o pote estiver vazio).\n");
     }
 }

@@ -16,17 +16,17 @@ public class Pote extends Conjunto{
             }
         }
     }
-	
-	public void mostrarQtdPedras(){
-		if(getNumPedras() > 0) {	
-			System.out.println("O pote possui " + getNumPedras() + " pedras.");
-		}else{
-			System.out.println("Pote vazio!!!");
-		}
-	}
+
+    public void mostrarQtdPedras(){
+        if(getNumPedras() > 0) {
+            System.out.println("O pote possui " + getNumPedras() + " pedras.");
+        } else{
+            System.out.println("Pote vazio!!!");
+        }
+    }
 
     public Pedra vendePedra(){
-		Random rand = new Random();
+        Random rand = new Random();
         int posicao = rand.nextInt(getNumPedras());
         Pedra pedraVendida = new Pedra (vetorPedras[posicao].getValor1(), vetorPedras[posicao].getValor2());
         retiraPedra(posicao);

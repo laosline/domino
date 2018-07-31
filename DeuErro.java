@@ -1,5 +1,5 @@
 public class DeuErro extends Exception{
-	public DeuErro (){	
+	public DeuErro (){
 		super();
 	}
 }

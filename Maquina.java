@@ -22,16 +22,16 @@ public class Maquina {
             }
         }
         if (numero > 1)  //  se for maior que 1, retorna aleatoriamente
-            {
-        		escolhido = escolha[rand.nextInt(numero)];
-            }
+        {
+            escolhido = escolha[rand.nextInt(numero)];
+        }
         if (numero == 0)
         {
-        	escolhido = maoDaMaquina.getNumPedras(); // algum valor que sei que e impossivel e force ele comprar peca
+            escolhido = maoDaMaquina.getNumPedras(); // algum valor que sei que e impossivel e force ele comprar peca
         }
         if (numero == 1)
         {
-        	escolhido = escolha[0];
+            escolhido = escolha[0];
         }
         return escolhido;
     }
