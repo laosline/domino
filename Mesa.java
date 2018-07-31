@@ -7,6 +7,7 @@ public class Mesa{
     protected Usadas usadas = new Usadas();
     private int rodada;
     private int tipoDeJogo;
+    private int contadorEmpates = 0;
     protected Maquina IA = new Maquina();
     Pote pote = SinglePote.getPote();
 
@@ -55,10 +56,10 @@ public class Mesa{
     }
 
     public void jogada(int rodada) throws JogadorRuim,Campeao,DeuErro{
-        int pedraEscolhida, contadorEmpates = 0;
+        int pedraEscolhida;
+	
         Scanner scan = new Scanner(System.in);
         Pedra pedraComprada;
-
         this.rodada = rodada; // rodada do Mesa eh atualizada de acordo com o rodada do Principal
 
         if(rodada%2 != 0){ // rodadas impares sao do jogador1
