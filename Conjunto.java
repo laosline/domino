@@ -1,4 +1,4 @@
-public class Conjunto{
+public abstract class Conjunto{
     protected Pedra[] vetorPedras = new Pedra[28];
     private int numPedras;
 
