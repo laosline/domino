@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Principal{
 	public static void main(String[] args) {
 		try{
-		System.out.println("Tutorial: Este Ã© um jogo de Domino simples feito para dois jogadores, sendo possivel jogar contra outra pessoa ou contra o computador. No inicio, cada jogador ira comecar com 7 pedras que deverao ser jogadas de acordo com a Pedra Principal colocada na mesa, que representa as duas pontas.");
+		System.out.println("Tutorial: Este é um jogo de Domino simples feito para dois jogadores, sendo possivel jogar contra outra pessoa ou contra o computador. No inicio, cada jogador ira comecar com 7 pedras que deverao ser jogadas de acordo com a Pedra Principal colocada na mesa, que representa as duas pontas.");
 		System.out.println("O jogador que possuir a maior pedra de indices iguais inicia o jogo automaticamente. Caso nenhum dos jogadores possua um duplo, o jogo e iniciado aleatoriamente.");
 		System.out.println("Em sua vez de jogar, voce podera selecionar uma pedra de sua mao que possua um dos valores iguais a um dos valores da Pedra Principal posta na mesa, ou comprar uma nova pedra, digitando o valor de sua escolha.");
 		System.out.println("O jogo termina com a vitoria do jogador que esvaziar a mao, ou com empate, caso o pote fique vazio.\n");
@@ -21,8 +21,7 @@ public class Principal{
 			//rodada par => vez do jogador 2
 			rodada++;
 			}catch(DeuErro e){
-				System.out.println(e.passarVez());
-				System.out.println(e.getNumPedras());
+				System.out.println(e);
 			}catch(JogadorRuim e){
 				System.out.println(e.getMessage());
 				System.out.print(e.getMessage1());
@@ -36,6 +35,8 @@ public class Principal{
 			System.out.print(e.getCampeao());
 			System.out.println(e.getMessage1());
 			System.out.println(e.getMessage2());
+		}catch(DeuEmpate e){
+			System.out.println(e.acabarJogo());
 		}
 	}
 	

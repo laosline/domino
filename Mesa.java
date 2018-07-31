@@ -54,8 +54,8 @@ public class Mesa{
         return this.rodada;
     }
 
-    public void jogada(int rodada) throws JogadorRuim,Campeao,DeuErro{
-        int pedraEscolhida;
+    public void jogada(int rodada) throws JogadorRuim,Campeao,DeuErro,DeuEmpate{
+        int pedraEscolhida, contadorEmpates = 0;
         Scanner scan = new Scanner(System.in);
         Pedra pedraComprada;
 
@@ -71,7 +71,7 @@ public class Mesa{
                 principal.imprimePedra(); // imprime a pedra principal
                 jogador1.mostrarMao(1); // imprime as pedras na mao do jogador
                 pedraEscolhida = scan.nextInt(); // jogador decide qual pedra jogar
-                if (pedraEscolhida > jogador1.getNumPedras()) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
+                if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
                 else if (pedraEscolhida == jogador1.getNumPedras()){ // caso o jogador digite um numero igual ao numPedras, ele compra pedra
                     if (pote.getNumPedras() == 0) throw new DeuErro();
                     pedraComprada = pote.vendePedra();// recebe uma pedra do Pote
@@ -95,7 +95,9 @@ public class Mesa{
 				jogadaInvalida = false;
 				
 				System.out.println("Jogador 1 passou a vez!");
-			
+	
+				contadorEmpates++;
+			   	if(contadorEmpates>2) throw new DeuEmpate();
 			}
 	       }
             }
@@ -117,7 +119,7 @@ public class Mesa{
                         if (jogadaInvalida == false){
                             usadas.compraPedra(jogador2.vetorPedras[pedraEscolhida]);
                             jogador2.retiraPedra(pedraEscolhida);
-                            clear();
+                            clear();	
                         }
                     }
                 }
@@ -158,7 +160,9 @@ public class Mesa{
 				jogadaInvalida = false;
 				
 				System.out.println("Jogador 2 passou a vez!");
-			
+
+				contadorEmpates++;
+				if(contadorEmpates>2) throw new DeuEmpate();		
 			}
 		    }
                 }
