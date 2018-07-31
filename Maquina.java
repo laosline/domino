@@ -22,7 +22,7 @@ public class Maquina {
         }
         if (numero > 1)
             escolhido = escolha[rand.nextInt(numero)];
-        if (numero == 0)
+        else if (numero == 0)
             escolhido = maoDaMaquina.getNumPedras();
         if (numero == 1)
             escolhido = escolha[0];

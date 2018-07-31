@@ -77,6 +77,9 @@ public class Mesa{
                 jogador2.mostrarMao(2);
                 if (tipoDeJogo == 0){
                     pedraEscolhida = IA.selecionar (jogador2, principal);
+                    if(pedraEscolhida == jogador2.getNumPedras() && pote.getNumPedras()==0){
+                        pedraEscolhida = jogador2.getNumPedras() + 1;
+                    }
                 }
                 else {
                     pedraEscolhida = scan.nextInt();
@@ -184,9 +187,7 @@ public class Mesa{
         jogador.retiraPedra(pedraEscolhida);
     }
 
-
     public Pedra getPrincipal (){
         return principal;
     }
-
 }
