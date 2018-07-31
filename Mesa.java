@@ -4,6 +4,7 @@ public class Mesa{
     private int rodada;
     private int tipoDeJogo;
     private int contadorEmpates = 0;
+    private boolean jogadaInvalida;
     private Pedra principal;
     protected Mao jogador1 = new Mao();
     protected Mao jogador2 = new Mao();
@@ -54,7 +55,7 @@ public class Mesa{
         this.rodada = rodada; // rodada do Mesa eh atualizada de acordo com o rodada do Principal
 
         if(rodada%2 != 0){ // rodadas impares sao do jogador1
-            boolean jogadaInvalida = true;
+            jogadaInvalida = true;
             while (jogadaInvalida){
                 usadas.mostrarUsadas(); // imprime as pedras retiradas pelos dois jogadores
                 jogador2.qtdPedrasAdversario(); // imprime quantas pedras o adversario tem
@@ -63,11 +64,11 @@ public class Mesa{
                 principal.imprimePedra(); // imprime a pedra principal
                 jogador1.mostrarMao(1); // imprime as pedras na mao do jogador
                 pedraEscolhida = scan.nextInt(); // jogador decide qual pedra jogar
-                jogadaInvalida = escolhaDaPedra(pedraEscolhida, jogador1);
+                escolhaDaPedra(pedraEscolhida, jogador1);
             }
             if(jogador1.getNumPedras()==0)throw new Campeao(rodada);
         } else if(rodada%2 == 0){ // rodadas pares sao do jogador2
-            boolean jogadaInvalida = true;
+            jogadaInvalida = true;
             while (jogadaInvalida){
                 usadas.mostrarUsadas();
                 jogador1.qtdPedrasAdversario();
@@ -84,9 +85,9 @@ public class Mesa{
                 else {
                     pedraEscolhida = scan.nextInt();
                 }
-                jogadaInvalida = escolhaDaPedra(pedraEscolhida, jogador2);
+                escolhaDaPedra(pedraEscolhida, jogador2);
             }
-            if(jogador2.getNumPedras()==0)throw new Campeao(rodada); // lanca o campeao
+            if(jogador2.getNumPedras()==0) throw new Campeao(rodada); // lanca o campeao
         }
     }
 
@@ -152,9 +153,9 @@ public class Mesa{
             System.out.println("\n");
     }
 
-    public boolean escolhaDaPedra (int pedraEscolhida, Mao jogador) throws JogadorRuim, Campeao, DeuErro
+    public void escolhaDaPedra (int pedraEscolhida, Mao jogador) throws JogadorRuim, Campeao, DeuErro
     {
-        boolean jogadaInvalida = true;
+        jogadaInvalida = true;
         Pedra pedraComprada;
         if (pedraEscolhida > jogador.getNumPedras()+1) throw new JogadorRuim(jogador.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
         else if (pedraEscolhida == jogador.getNumPedras()){ // caso o jogador digite um numero igual ao numPedras, ele compra pedra
@@ -165,7 +166,7 @@ public class Mesa{
         } else if(pedraEscolhida < jogador.getNumPedras()){ // o jogador escolhe uma pedra para colocar na principal
             jogadaInvalida = inserirPedra(jogador.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja invï¿½lida, ele repete a mesma jogada
             if(jogadaInvalida == false){ // jogada acaba se a jogada for vï¿½lida
-                usadas.compraPedra(jogador1.vetorPedras[pedraEscolhida]);
+                usadas.compraPedra(jogador.vetorPedras[pedraEscolhida]);
                 jogador.retiraPedra(pedraEscolhida);
                 contadorEmpates = 0;
                 clear();
@@ -175,7 +176,6 @@ public class Mesa{
                 jogadaInvalida = passarVez();
             }
         }
-        return jogadaInvalida;
     }
 
     public void semDuplos (Mao jogador){
