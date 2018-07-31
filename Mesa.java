@@ -44,7 +44,7 @@ public class Mesa{
                 if (pedraEscolhida > jogador1.getNumPedras());
                 principal = jogador1.vetorPedras[pedraEscolhida];
                 jogador1.retiraPedra(pedraEscolhida); // pedra retirada da mao do jogador
-            } else 	if(rodada%2 == 0){
+            } else if(rodada%2 == 0){
                 System.out.println("Nenhum dos jogadores possuem duplos, escolha um número entre 0 e 7 para decidir qual pedra ira comecar: ");
                 pedraEscolhida = scan.nextInt();
                 if (pedraEscolhida > jogador1.getNumPedras());
@@ -89,17 +89,8 @@ public class Mesa{
                 }else if(pedraEscolhida == jogador1.getNumPedras()+1){
 	
 			if(pote.getNumPedras() == 0){
-				
-				this.rodada++;
-				
-				clear();
+				jogadaInvalida = passarVez();
 
-				jogadaInvalida = false;
-				
-				System.out.println("Jogador 1 passou a vez!");
-	
-				contadorEmpates++;
-			   	if(contadorEmpates>2) throw new DeuEmpate();
 			}
 	       }
             }
@@ -155,16 +146,8 @@ public class Mesa{
 	            else if(pedraEscolhida == jogador2.getNumPedras()+1){
 	
 			if(pote.getNumPedras() == 0){
-				
-				this.rodada++;
-				
-				clear();
-
-				jogadaInvalida = false;
-				System.out.println("Jogador 2 passou a vez!");
-
-				contadorEmpates++;
-				if(contadorEmpates>2) throw new DeuEmpate();
+	
+				jogadaInvalida = passarVez();
 			}
 		    }
                 }
@@ -213,6 +196,23 @@ public class Mesa{
             System.out.println("Jogada Invalida!\n");
         }
         return jogadaInvalida;
+    }
+	
+    public boolean passarVez(){
+	if(rodada%2 != 0){
+		System.out.println("Jogador 1 passou a vez!");
+
+	} else {
+		System.out.println("Jogador 2 passou a vez!");
+
+	}
+	this.rodada++;
+				
+	clear();
+
+	this.contadorEmpates++;
+	if(this.contadorEmpates>2) throw new DeuEmpate();
+	return false;
     }
 
     public void clear (){
