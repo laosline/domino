@@ -24,7 +24,7 @@ public class Mesa{
             this.rodada = 2;
             principal = new Pedra(jogador1.maiorDuplo,jogador1.maiorDuplo); // gera uma pedra principal atraves do maiorDuplo armazenado no Mao
             usadas.compraPedra(principal);
-            jogador1.retiraPedra(jogador1.maiorDuploIndice); // retira a pedra atravÃ©s do seu indice no vetor
+            jogador1.retiraPedra(jogador1.maiorDuploIndice); // retira a pedra através do seu indice no vetor
             System.out.print("O jogador 1 iniciou o jogo com a pedra ");
             principal.imprimePedra();
         } else if(jogador1.maiorDuplo < jogador2.maiorDuplo){
@@ -38,13 +38,13 @@ public class Mesa{
             Random rand = new Random();
             this.rodada = rand.nextInt(2)+1;
             if(rodada%2 != 0){
-                System.out.println("Nenhum dos jogadores possuem duplos, escolha um nÃºmero entre 0 e 7 para decidir qual pedra ira comecar: ");
+                System.out.println("Nenhum dos jogadores possuem duplos, escolha um número entre 0 e 7 para decidir qual pedra ira comecar: ");
                 pedraEscolhida = scan.nextInt(); // jogador decide cegamente qual pedra inicia
                 if (pedraEscolhida > jogador1.getNumPedras());
                 principal = jogador1.vetorPedras[pedraEscolhida];
                 jogador1.retiraPedra(pedraEscolhida); // pedra retirada da mao do jogador
-            } else 	if(rodada%2 == 0){
-                System.out.println("Nenhum dos jogadores possuem duplos, escolha um nÃºmero entre 0 e 7 para decidir qual pedra ira comecar: ");
+            } else if(rodada%2 == 0){
+                System.out.println("Nenhum dos jogadores possuem duplos, escolha um número entre 0 e 7 para decidir qual pedra ira comecar: ");
                 pedraEscolhida = scan.nextInt();
                 if (pedraEscolhida > jogador1.getNumPedras());
                 principal = jogador2.vetorPedras[pedraEscolhida];
@@ -71,20 +71,27 @@ public class Mesa{
                 principal.imprimePedra(); // imprime a pedra principal
                 jogador1.mostrarMao(1); // imprime as pedras na mao do jogador
                 pedraEscolhida = scan.nextInt(); // jogador decide qual pedra jogar
-                if (pedraEscolhida > jogador1.getNumPedras()) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
+                if (pedraEscolhida > jogador1.getNumPedras()+1) throw new JogadorRuim(jogador1.getNumPedras()+1,pedraEscolhida); // caso o jogador digite um numero maior que o numero de Pedras, o jogo retorna um erro e faz com que ele jogue novamente
                 else if (pedraEscolhida == jogador1.getNumPedras()){ // caso o jogador digite um numero igual ao numPedras, ele compra pedra
-                    if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
+                    if (pote.getNumPedras() == 0) throw new DeuErro();
                     pedraComprada = pote.vendePedra();// recebe uma pedra do Pote
                     jogador1.compraPedra(pedraComprada);// coloca essa pedra no Mao
                     System.out.println("Pedra comprada!\n");
                 }else if(pedraEscolhida < jogador1.getNumPedras()){ // o jogador escolhe uma pedra para colocar na principal
-                    jogadaInvalida = inserirPedra(jogador1.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja invÃ¡lida, ele repete a mesma jogada
-                    if(jogadaInvalida == false){ // jogada acaba se a jogada for vÃ¡lida
+                    jogadaInvalida = inserirPedra(jogador1.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja inválida, ele repete a mesma jogada
+                    if(jogadaInvalida == false){ // jogada acaba se a jogada for válida
                         usadas.compraPedra(jogador1.vetorPedras[pedraEscolhida]);
                         jogador1.retiraPedra(pedraEscolhida);
                         clear();
                     }
-                }
+                }else if(pedraEscolhida == jogador1.getNumPedras()+1){
+			if(pote.getNumPedras() == 0){
+				this.rodada++;
+				clear();
+				jogadaInvalida = false;
+				System.out.println("Jogador 1 passou a vez!");
+			}
+           	}
             }
             if(jogador1.getNumPedras()==0)throw new Campeao(rodada);
         } else if(rodada%2 == 0){ // rodadas pares sao do jogador2
@@ -94,7 +101,7 @@ public class Mesa{
                     pedraEscolhida = IA.selecionar (jogador2, principal);
                     if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
                     else if (pedraEscolhida == jogador2.getNumPedras()){
-                        if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
+                        if (pote.getNumPedras() == 0) throw new DeuErro();
                         pedraComprada = pote.vendePedra();
                         jogador2.compraPedra(pedraComprada);
                         System.out.println("Pedra comprada!\n");
@@ -119,9 +126,9 @@ public class Mesa{
                     principal.imprimePedra(); // imprime a pedra principal
                     jogador2.mostrarMao(2);
                     pedraEscolhida = scan.nextInt();
-                    if (pedraEscolhida > jogador2.getNumPedras()) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
+                    if (pedraEscolhida > jogador2.getNumPedras()+1) throw new JogadorRuim(jogador2.getNumPedras()+1,pedraEscolhida);
                     else if (pedraEscolhida == jogador2.getNumPedras()){
-                        if (pote.getNumPedras() == 0) throw new DeuErro(jogador1.getNumPedras());
+                        if (pote.getNumPedras() == 0) throw new DeuErro();
                         pedraComprada = pote.vendePedra();
                         jogador2.compraPedra(pedraComprada);
                         System.out.println("Pedra comprada!\n");
@@ -133,7 +140,14 @@ public class Mesa{
                             jogador2.retiraPedra(pedraEscolhida);
                             clear();
                         }
-                    }
+                    }else if(pedraEscolhida == jogador2.getNumPedras()+1){
+			if(pote.getNumPedras() == 0){
+				this.rodada++;
+				clear();
+				jogadaInvalida = false;
+				System.out.println("Jogador 2 passou a vez!");
+			}
+           	    }
                 }
                 if(jogador2.getNumPedras()==0)throw new Campeao(rodada); // lanca o campeao
             }
@@ -142,7 +156,7 @@ public class Mesa{
 
     public boolean inserirPedra(Pedra pedraNova){
         boolean jogadaInvalida = false;
-        if (tipoDeJogo != 0) {
+        if (tipoDeJogo != 0 && rodada%2 == 0) {
             if ((principal.getValor1() == pedraNova.getValor1() && principal.getValor2() == pedraNova.getValor2()) || (principal.getValor1() == pedraNova.getValor2() && principal.getValor2() == pedraNova.getValor1())) {
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Digite o lado que voce deseja jogar a pedra: 0 = " + principal.getValor1() + "\n1 = " + principal.getValor2());
