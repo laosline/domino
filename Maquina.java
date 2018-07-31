@@ -22,12 +22,22 @@ public class Maquina {
             }
         }
         if (numero > 1)  //  se for maior que 1, retorna aleatoriamente
-            escolhido =  rand.nextInt(numero) +1;
+            {
+        		escolhido = escolha[rand.nextInt(numero)];
+        		System.out.println("varias opcoes");
+            }
         if (numero == 0)
-            escolhido = maoDaMaquina.getNumPedras(); // algum valor que sei que e impossivel e force ele comprar peca
+        {
+        	System.out.println("tem que comprar");
+        	escolhido = maoDaMaquina.getNumPedras(); // algum valor que sei que e impossivel e force ele comprar peca
+        }
         if (numero == 1)
-            escolhido = escolha[0];
+        {
+        	escolhido = escolha[0];
+        	System.out.println("uma opcao");
+        }
         return escolhido;
     }
 }
+
 
