@@ -148,19 +148,23 @@ public class Mesa{
             int lado = scan.nextInt();
             if(lado == 0){
                 if (principal.getValor1() == pedraNova.getValor1()){
+                    System.out.println("a");
                     principal.setValor1(pedraNova.getValor2());
                 }
                 else {
                     principal.setValor1(pedraNova.getValor1());
+                    System.out.println("b");
                 }
                 return jogadaInvalida;
             }
             else if (lado == 1){
                 if (principal.getValor2() == pedraNova.getValor1()){
                     principal.setValor2(pedraNova.getValor2());
+                    System.out.println("c");
                 }
                 else {
-                    principal.setValor2(pedraNova.getValor2());
+                    principal.setValor2(pedraNova.getValor1());
+                    System.out.println("d");
                 }
                 return jogadaInvalida;
             }
