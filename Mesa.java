@@ -142,7 +142,7 @@ public class Mesa{
 
     public boolean inserirPedra(Pedra pedraNova){
         boolean jogadaInvalida = false;
-        if (tipoDeJogo != 0) {
+        if (tipoDeJogo != 0 && rodada%2 == 0) {
             if ((principal.getValor1() == pedraNova.getValor1() && principal.getValor2() == pedraNova.getValor2()) || (principal.getValor1() == pedraNova.getValor2() && principal.getValor2() == pedraNova.getValor1())) {
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Digite o lado que voce deseja jogar a pedra: 0 = " + principal.getValor1() + "\n1 = " + principal.getValor2());
