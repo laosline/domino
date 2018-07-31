@@ -85,17 +85,19 @@ public class Mesa{
                         clear();
                     }
                 }else if(pedraEscolhida == jogador1.getNumPedras()+1){
+	
 			if(pote.getNumPedras() == 0){
+				
 				this.rodada++;
+				
 				clear();
+
 				jogadaInvalida = false;
+				
 				System.out.println("Jogador 1 passou a vez!");
-<<<<<<< HEAD
 	
 				contadorEmpates++;
 			   	if(contadorEmpates>2) throw new DeuEmpate();
-=======
->>>>>>> 7e708edd78945adb6259c6872a6b138b4aa21b1b
 			}
 	       }
             }
@@ -148,17 +150,19 @@ public class Mesa{
                         }
                     }
 	            else if(pedraEscolhida == jogador2.getNumPedras()+1){
+	
 			if(pote.getNumPedras() == 0){
+				
 				this.rodada++;
+				
 				clear();
+
 				jogadaInvalida = false;
+				
 				System.out.println("Jogador 2 passou a vez!");
-<<<<<<< HEAD
 
 				contadorEmpates++;
 				if(contadorEmpates>2) throw new DeuEmpate();		
-=======
->>>>>>> 7e708edd78945adb6259c6872a6b138b4aa21b1b
 			}
 		    }
                 }
