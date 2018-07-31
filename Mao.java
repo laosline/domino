@@ -1,6 +1,6 @@
 public class Mao extends Conjunto {
-    protected int maiorDuplo = -1;
-    protected int maiorDuploIndice = -1;
+    private int maiorDuplo = -1;
+    private int maiorDuploIndice = -1;
 
     public Mao() {
         setNumPedras(0);
@@ -35,5 +35,21 @@ public class Mao extends Conjunto {
         super.imprimePedras();
         System.out.println(getNumPedras()+" = Comprar nova Pedra.");
         System.out.println(getNumPedras()+1 +" = Passar a vez (funciona somente se o pote estiver vazio).\n");
+    }
+
+    public int getMaiorDuplo() {
+        return maiorDuplo;
+    }
+
+    public void setMaiorDuplo(int maiorDuplo) {
+        this.maiorDuplo = maiorDuplo;
+    }
+
+    public int getMaiorDuploIndice() {
+        return maiorDuploIndice;
+    }
+
+    public void setMaiorDuploIndice(int maiorDuploIndice) {
+        this.maiorDuploIndice = maiorDuploIndice;
     }
 }
