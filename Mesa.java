@@ -142,36 +142,34 @@ public class Mesa{
 
     public boolean inserirPedra(Pedra pedraNova){
         boolean jogadaInvalida = false;
-        if ((principal.getValor1() == pedraNova.getValor1() && principal.getValor2() == pedraNova.getValor2()) || (principal.getValor1() == pedraNova.getValor2() && principal.getValor2() == pedraNova.getValor1())){
-            Scanner scan = new Scanner (System.in);
-            System.out.println("Digite o lado que voce deseja jogar a pedra: 0 = " + principal.getValor1() + "\n1 = " + principal.getValor2());
-            int lado = scan.nextInt();
-            if(lado == 0){
-                if (principal.getValor1() == pedraNova.getValor1()){
-                    System.out.println("a");
-                    principal.setValor1(pedraNova.getValor2());
+        if (tipoDeJogo != 0) {
+            if ((principal.getValor1() == pedraNova.getValor1() && principal.getValor2() == pedraNova.getValor2()) || (principal.getValor1() == pedraNova.getValor2() && principal.getValor2() == pedraNova.getValor1())) {
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Digite o lado que voce deseja jogar a pedra: 0 = " + principal.getValor1() + "\n1 = " + principal.getValor2());
+                int lado = scan.nextInt();
+                if (lado == 0) {
+                    if (principal.getValor1() == pedraNova.getValor1()) {
+                        System.out.println("a");
+                        principal.setValor1(pedraNova.getValor2());
+                    } else {
+                        principal.setValor1(pedraNova.getValor1());
+                        System.out.println("b");
+                    }
+                    return jogadaInvalida;
+                } else if (lado == 1) {
+                    if (principal.getValor2() == pedraNova.getValor1()) {
+                        principal.setValor2(pedraNova.getValor2());
+                        System.out.println("c");
+                    } else {
+                        principal.setValor2(pedraNova.getValor1());
+                        System.out.println("d");
+                    }
+                    return jogadaInvalida;
+                } else {
+                    jogadaInvalida = true;
                 }
-                else {
-                    principal.setValor1(pedraNova.getValor1());
-                    System.out.println("b");
-                }
-                return jogadaInvalida;
-            }
-            else if (lado == 1){
-                if (principal.getValor2() == pedraNova.getValor1()){
-                    principal.setValor2(pedraNova.getValor2());
-                    System.out.println("c");
-                }
-                else {
-                    principal.setValor2(pedraNova.getValor1());
-                    System.out.println("d");
-                }
-                return jogadaInvalida;
-            }
-            else {
-                jogadaInvalida = true;
-            }
 
+            }
         }
         if(principal.getValor1() == pedraNova.getValor1()){
             this.principal.setValor1(pedraNova.getValor2());
