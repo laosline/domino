@@ -33,7 +33,7 @@ public class Mao extends Conjunto {
         System.out.println("\nJogador " + numJogador + ": \nVoce tem " + getNumPedras() + " pedras.\n");
         System.out.println("Digite o numero da pedra que voce deseja jogar: \n");
         super.imprimePedras();
-        System.out.println(getNumPedras()+" = Comprar nova Pedra.\n");
+        System.out.println(getNumPedras()+" = Comprar nova Pedra.");
         System.out.println(getNumPedras()+1 +" = Passar a vez (funciona somente se o pote estiver vazio).\n");
     }
 }
