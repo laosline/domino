@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Mesa {
+public class Mesa implements Jogo {
     private int rodada;
     private int tipoDeJogo;
     private int contadorEmpates = 0;
