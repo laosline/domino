@@ -1,13 +1,14 @@
 public interface Jogo {
-    public int comecarJogo(int tipoDeJogo);
 
-    public void jogada(int rodada) throws JogadorRuim,Campeao,DeuErro;
+    int comecarJogo(int tipoDeJogo);
 
-    public boolean inserirPedra(Pedra pedraNova);
+    void jogada(int rodada) throws JogadorRuim,Campeao,DeuErro;
 
-    public boolean passarVez();
+    boolean inserirPedra(Pedra pedraNova);
 
-    public void escolhaDaPedra (int pedraEscolhida, Mao jogador) throws JogadorRuim, Campeao, DeuErro;
-   
-    public Pedra getPrincipal();
+    boolean passarVez();
+
+    void escolhaDaPedra (int pedraEscolhida, Mao jogador) throws JogadorRuim, Campeao, DeuErro;
+
+    Pedra getPrincipal();
 }
