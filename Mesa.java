@@ -18,15 +18,15 @@ public class Mesa{
         int pedraEscolhida;
         clear();
         for(int i = 0;i<7;i++){
-            jogador1.compraPedraInicial(i);
-            jogador2.compraPedraInicial(i);
+            jogador1.compraPedra(i);
+            jogador2.compraPedra(i);
         }
 
         if(jogador1.getMaiorDuplo() > jogador2.getMaiorDuplo()){ // decide qual jogador comeca atraves do maior duplo na mao inicial
             this.rodada = 2;
             principal = new Pedra(jogador1.getMaiorDuplo(),jogador1.getMaiorDuplo()); // gera uma pedra principal atraves do maiorDuplo armazenado no Mao
             usadas.compraPedra(principal);
-            jogador1.retiraPedra(jogador1.getMaiorDuploIndice()); // retira a pedra atravï¿½s do seu indice no vetor
+            jogador1.retiraPedra(jogador1.getMaiorDuploIndice()); // retira a pedra atrav�s do seu indice no vetor
             System.out.print("O jogador 1 iniciou o jogo com a pedra ");
             principal.imprimePedra();
         } else if(jogador1.getMaiorDuplo() < jogador2.getMaiorDuplo()){
@@ -164,8 +164,8 @@ public class Mesa{
             jogador.compraPedra(pedraComprada);// coloca essa pedra no Mao
             System.out.println("Pedra comprada!\n");
         } else if(pedraEscolhida < jogador.getNumPedras()){ // o jogador escolhe uma pedra para colocar na principal
-            jogadaInvalida = inserirPedra(jogador.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja invï¿½lida, ele repete a mesma jogada
-            if(jogadaInvalida == false){ // jogada acaba se a jogada for vï¿½lida
+            jogadaInvalida = inserirPedra(jogador.vetorPedras[pedraEscolhida]); // insere a pedra na mesa, substituindo a principal, retorna um boolean para caso a jogada seja inv�lida, ele repete a mesma jogada
+            if(jogadaInvalida == false){ // jogada acaba se a jogada for v�lida
                 usadas.compraPedra(jogador.vetorPedras[pedraEscolhida]);
                 jogador.retiraPedra(pedraEscolhida);
                 contadorEmpates = 0;

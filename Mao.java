@@ -12,8 +12,8 @@ public class Mao extends Conjunto {
                 this.maiorDuplo = pedraComprada.getValor1();
         }
     }
-
-    public void compraPedraInicial (int indice){
+    
+    public void compraPedra (int indice){
         Pote pote = SinglePote.getPote();
         Pedra pedraComprada = pote.vendePedra();
         int maior = this.maiorDuplo;
