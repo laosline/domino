@@ -1,5 +1,5 @@
 public class Campeao extends Exception{
-	int jogador;
+	private int jogador;
 	public Campeao(int i){
 		this.jogador = i;
 	}

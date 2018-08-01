@@ -25,9 +25,9 @@ public class Principal{
 				}catch(JogadorRuim e){
 					System.out.println(e.getMessage());
 					System.out.print(e.getMessage1());
-					System.out.println(e.getnumPedras());
+					System.out.println(e.getNumPedras());
 					System.out.println(e.getMessage2());
-					System.out.println(e.geterrada());
+					System.out.println(e.getErrada());
 				}
 			}
 		}catch(Campeao e){

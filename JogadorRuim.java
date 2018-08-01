@@ -13,10 +13,10 @@ public class JogadorRuim extends Exception{
 	public String getMessage2(){
 		return "E voce digitou: ";
 	}
-	public double getnumPedras(){
+	public int getNumPedras(){
 		return numPedras;
 	}
-	public double geterrada(){
+	public int getErrada(){
 		return errada;
 	}
 }

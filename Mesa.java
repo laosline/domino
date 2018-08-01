@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Mesa{
+public class Mesa {
     private int rodada;
     private int tipoDeJogo;
     private int contadorEmpates = 0;
@@ -183,7 +183,7 @@ public class Mesa{
         System.out.println("Nenhum dos jogadores possuem duplos, escolha um numero entre 0 e 7 para decidir qual pedra ira comecar: ");
         int pedraEscolhida = scan.nextInt();
         if (pedraEscolhida > jogador.getNumPedras());
-            principal = jogador.vetorPedras[pedraEscolhida];
+        principal = jogador.vetorPedras[pedraEscolhida];
         jogador.retiraPedra(pedraEscolhida);
     }
 
